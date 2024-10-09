@@ -13,7 +13,7 @@ export const HourlyForecastItem = ({
 	temperature,
 }: HourlyForecastItemProps) => {
 	return (
-		<div className={'grid gap-1 text-xs justify-items-center'}>
+		<div className={'grid gap-1 text-xs justify-items-center font-semibold'}>
 			<p className={''}>Now</p>
 			<Image
 				className={'h-7 w-7 object-cover'}

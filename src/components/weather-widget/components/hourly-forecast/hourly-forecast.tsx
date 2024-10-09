@@ -10,7 +10,7 @@ export const HourlyForecast = () => {
 				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3'
 			}
 		>
-			<h3 className={'text-xs'}>
+			<h3 className={'text-xs font-semibold'}>
 				Cloudy conditions expected around 23:00, with partly cloudy conditions at
 				04:00
 			</h3>
