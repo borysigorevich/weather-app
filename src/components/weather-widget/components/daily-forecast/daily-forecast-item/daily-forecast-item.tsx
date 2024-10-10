@@ -2,20 +2,17 @@ import { TemperatureLine } from '@/components/weather-widget/components/daily-fo
 import Image from 'next/image';
 import React from 'react';
 
-type HourlyForecastItemProps = {
-	time: string;
-	temperature: number;
+type DailyForecastItemProps = {
+	day: string;
+	high: number;
+	low: number;
 	icon: string;
 };
 
-export const HourlyForecastItem = ({
-	time,
-	icon,
-	temperature,
-}: HourlyForecastItemProps) => {
+export const DailyForecastItem = ({ low, icon, day, high }: DailyForecastItemProps) => {
 	return (
-		<div className={'grid gap-1 text-xs justify-items-center font-semibold'}>
-			<p>Now</p>
+		<div className={'flex gap-4 py-1 justify-between font-semibold text-sm items-center border-b border-b-white/40'}>
+			<p>Today</p>
 			<Image
 				className={'h-7 w-7 object-cover'}
 				src={'https://cdn.weatherapi.com/weather/64x64/night/122.png'}
@@ -23,7 +20,7 @@ export const HourlyForecastItem = ({
 				height={28}
 				alt={'weather'}
 			/>
-			<p>12°</p>
+			<TemperatureLine minTemp={low} maxTemp={high} avgTemp={15} />
 		</div>
 	);
 };
