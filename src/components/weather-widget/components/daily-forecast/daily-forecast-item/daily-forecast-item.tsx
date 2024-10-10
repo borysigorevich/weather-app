@@ -13,7 +13,7 @@ export const DailyForecastItem = ({ low, icon, day, high }: DailyForecastItemPro
 	return (
 		<div
 			className={
-				'grid grid-cols-[29px_auto_1fr] gap-4 py-1 justify-between font-semibold text-sm items-center border-b border-b-white/40'
+				'grid grid-cols-[29px_28px_1fr] gap-1.5 py-1 justify-between font-semibold text-sm items-center border-b border-b-white/40'
 			}
 		>
 			<p>{day}</p>

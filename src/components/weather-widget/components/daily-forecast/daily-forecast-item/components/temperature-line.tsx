@@ -18,24 +18,9 @@ export const TemperatureLine: React.FC<TemperatureLineProps> = ({
 	const rightFlexBasis = `${((maxTemp - (avgTemp || minTemp)) / totalRange) * 100}%`;
 
 	return (
-		<div className="grid items-center w-full grid-cols-[22.45px_1fr_22.45px] gap-1">
+		<div className="grid items-center justify-items-center w-full grid-cols-[22.45px_auto_22.45px] gap-1">
 			<p>{minTemp.toFixed(0)}°</p>
-			<div className={'flex items-center w-full h-1'}>
-				<div
-					className="bg-gray-300 h-1 rounded-l-full"
-					style={{flexBasis: leftFlexBasis}}
-				/>
-
-				{/* Active (colored) part of the range */}
-				<div className="bg-green-500 h-1" style={{width: '10px'}}/>
-
-				{/* Right (empty) part of the range */}
-				<div
-					className="bg-gray-300 h-1 rounded-r-full"
-					style={{flexBasis: rightFlexBasis}}
-				/>
-			</div>
-
+-
 			<p>{maxTemp.toFixed(0)}°</p>
 		</div>
 	);

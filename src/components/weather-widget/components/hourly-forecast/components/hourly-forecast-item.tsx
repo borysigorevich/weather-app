@@ -1,3 +1,4 @@
+import {Divider} from "@/components/ui/divider";
 import { TemperatureLine } from '@/components/weather-widget/components/daily-forecast/daily-forecast-item/components/temperature-line';
 import Image from 'next/image';
 import React from 'react';
@@ -24,6 +25,7 @@ export const HourlyForecastItem = ({
 				alt={'weather'}
 			/>
 			<p>{temperature}°</p>
+			<Divider className={'my-0 w-3/4'}/>
 		</div>
 	);
 };

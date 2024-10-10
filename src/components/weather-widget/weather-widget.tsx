@@ -67,7 +67,7 @@ export const WeatherWidget = async () => {
 				}
 			>
 				<CurrentTemperatureDisplay {...temperatureDisplayData} />
-				<div className={'@2xl: grid gap-2 overflow-auto'}>
+				<div className={'grid group-has-[[data-4x2]]/container:grid-cols-2 gap-2 overflow-auto'}>
 					<HourlyForecast
 						hourlyForecastData={hourlyForecastData}
 						HourlyForecastItem={HourlyForecastItem}
