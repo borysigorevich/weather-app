@@ -1,3 +1,4 @@
+import { DynamicContainer } from '@/components/dynamic-container/dynamic-container';
 import { Card } from '@/components/ui/card';
 import { CurrentTemperatureDisplay } from '@/components/weather-widget/components/current-temperature-display/current-temperature-display';
 import { DailyForecast } from '@/components/weather-widget/components/daily-forecast/daily-forecast';
@@ -59,20 +60,22 @@ export const WeatherWidget = async () => {
 	const hourlyForecastData = normalizeHourlyForecastData(weather);
 
 	return (
-		<Card
-			className={
-				'min-h-96 w-96 rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white'
-			}
-		>
-			<CurrentTemperatureDisplay {...temperatureDisplayData} />
-			<HourlyForecast
-				hourlyForecastData={hourlyForecastData}
-				HourlyForecastItem={HourlyForecastItem}
-			/>
-			<DailyForecast
-				dailyForecastData={normalizeDailyForecastData(weather)}
-				DailyForecastItem={DailyForecastItem}
-			/>
-		</Card>
+		<DynamicContainer>
+			<Card
+				className={
+					'min-h-96 w-96 rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white'
+				}
+			>
+				<CurrentTemperatureDisplay {...temperatureDisplayData} />
+				<HourlyForecast
+					hourlyForecastData={hourlyForecastData}
+					HourlyForecastItem={HourlyForecastItem}
+				/>
+				<DailyForecast
+					dailyForecastData={normalizeDailyForecastData(weather)}
+					DailyForecastItem={DailyForecastItem}
+				/>
+			</Card>
+		</DynamicContainer>
 	);
 };
