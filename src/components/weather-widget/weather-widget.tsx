@@ -63,7 +63,7 @@ export const WeatherWidget = async () => {
 		<DynamicContainer>
 			<Card
 				className={
-					'min-h-96 w-96 rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white'
+					'rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white w-full h-full overflow-hidden'
 				}
 			>
 				<CurrentTemperatureDisplay {...temperatureDisplayData} />

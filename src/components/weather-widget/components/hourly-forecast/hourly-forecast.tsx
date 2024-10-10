@@ -19,7 +19,7 @@ export const HourlyForecast = ({
 	return (
 		<Card
 			className={
-				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 border-none overflow-hidden'
+				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 border-none overflow-hidden '
 			}
 		>
 			<div className={'flex gap-4 items-center'}>

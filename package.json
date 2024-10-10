@@ -10,6 +10,7 @@
     "format": "prettier \"**/*.{ts,tsx,mjs,js,jsx,json,md}\" --check --write"
   },
   "dependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

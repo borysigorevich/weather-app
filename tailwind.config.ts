@@ -55,9 +55,18 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		width: {
+			  160: '40rem',
+		},
+		height: {
+			  160: '40rem',
+		},
+		containers: {
+			  '2xl': '40rem'
+		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/container-queries')],
 };
 export default config;

@@ -1,3 +1,4 @@
+import {Card} from "@/components/ui/card";
 import React, { ComponentType } from 'react';
 
 type DailyForecastDataType = {
@@ -17,9 +18,9 @@ export const DailyForecast = ({
 	DailyForecastItem,
 }: DailyForecastProps) => {
 	return (
-		<div
+		<Card
 			className={
-				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 mt-2'
+				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 border-none overflow-hidden mt-2'
 			}
 		>
 			<p className={'font-semibold text-sm text-white/85'}>10-day forecast</p>
@@ -29,6 +30,6 @@ export const DailyForecast = ({
 					<DailyForecastItem key={index} {...forecast} />
 				))}
 			</div>
-		</div>
+		</Card>
 	);
 };
