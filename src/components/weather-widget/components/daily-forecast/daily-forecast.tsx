@@ -20,7 +20,7 @@ export const DailyForecast = ({
 	return (
 		<Card
 			className={
-				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 border-none overflow-hidden mt-2'
+				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 border-none overflow-hidden'
 			}
 		>
 			<p className={'font-semibold text-sm text-white/85'}>10-day forecast</p>

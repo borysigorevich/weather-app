@@ -67,14 +67,16 @@ export const WeatherWidget = async () => {
 				}
 			>
 				<CurrentTemperatureDisplay {...temperatureDisplayData} />
-				<HourlyForecast
-					hourlyForecastData={hourlyForecastData}
-					HourlyForecastItem={HourlyForecastItem}
-				/>
-				<DailyForecast
-					dailyForecastData={normalizeDailyForecastData(weather)}
-					DailyForecastItem={DailyForecastItem}
-				/>
+				<div className={'@2xl: grid gap-2'}>
+					<HourlyForecast
+						hourlyForecastData={hourlyForecastData}
+						HourlyForecastItem={HourlyForecastItem}
+					/>
+					<DailyForecast
+						dailyForecastData={normalizeDailyForecastData(weather)}
+						DailyForecastItem={DailyForecastItem}
+					/>
+				</div>
 			</Card>
 		</DynamicContainer>
 	);
