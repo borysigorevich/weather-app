@@ -11,11 +11,15 @@ type DailyForecastItemProps = {
 
 export const DailyForecastItem = ({ low, icon, day, high }: DailyForecastItemProps) => {
 	return (
-		<div className={'flex gap-4 py-1 justify-between font-semibold text-sm items-center border-b border-b-white/40'}>
-			<p>Today</p>
+		<div
+			className={
+				'grid grid-cols-[29px_auto_1fr] gap-4 py-1 justify-between font-semibold text-sm items-center border-b border-b-white/40'
+			}
+		>
+			<p>{day}</p>
 			<Image
 				className={'h-7 w-7 object-cover'}
-				src={'https://cdn.weatherapi.com/weather/64x64/night/122.png'}
+				src={icon}
 				width={28}
 				height={28}
 				alt={'weather'}

@@ -1,9 +1,21 @@
-import {
-	DailyForecastItem
-} from "@/components/weather-widget/components/daily-forecast/daily-forecast-item/daily-forecast-item";
-import React from 'react';
+import React, { ComponentType } from 'react';
 
-export const DailyForecast = () => {
+type DailyForecastDataType = {
+	day: string;
+	high: number;
+	low: number;
+	icon: string;
+};
+
+type DailyForecastProps = {
+	dailyForecastData: DailyForecastDataType[];
+	DailyForecastItem: ComponentType<DailyForecastDataType>;
+};
+
+export const DailyForecast = ({
+	dailyForecastData,
+	DailyForecastItem,
+}: DailyForecastProps) => {
 	return (
 		<div
 			className={
@@ -13,14 +25,8 @@ export const DailyForecast = () => {
 			<p className={'font-semibold text-sm text-white/85'}>10-day forecast</p>
 
 			<div className={'mt-2'}>
-				{[1, 2, 3, 4,5,6,7,8].map((item, index) => (
-					<DailyForecastItem
-						key={index}
-						day={'Today'}
-						high={Math.random() * 20 + 10}
-						low={Math.random() * 10 + 5}
-						icon={''}
-					/>
+				{dailyForecastData.map((forecast, index) => (
+					<DailyForecastItem key={index} {...forecast} />
 				))}
 			</div>
 		</div>
