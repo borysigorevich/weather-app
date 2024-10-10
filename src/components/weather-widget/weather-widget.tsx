@@ -63,11 +63,11 @@ export const WeatherWidget = async () => {
 		<DynamicContainer>
 			<Card
 				className={
-					'rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white w-full h-full overflow-hidden'
+					'rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white w-full h-full overflow-hidden grid'
 				}
 			>
 				<CurrentTemperatureDisplay {...temperatureDisplayData} />
-				<div className={'@2xl: grid gap-2'}>
+				<div className={'@2xl: grid gap-2 overflow-auto'}>
 					<HourlyForecast
 						hourlyForecastData={hourlyForecastData}
 						HourlyForecastItem={HourlyForecastItem}

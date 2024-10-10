@@ -17,13 +17,13 @@ export const CurrentTemperatureDisplay = ({
 	location,
 }: CurrentTemperatureDisplayProps) => {
 	return (
-		<div className={'text-center @xs:my-2 @2xl:my-4'}>
+		<div className={'text-center my-2 group-has-[[data-4x4]]/container:block:my-4'}>
 			<h3 className={'text-xl'}>{location}</h3>
 			<p className={cn('text-6xl hidden group-has-[[data-4x4]]/container:block')}>
 				{temperature.toFixed(0)}°
 			</p>
 			<div className={'text-sm font-semibold'}>
-				<div className={'@xs:flex justify-center gap-1 items-center'}>
+				<div className={'flex justify-center gap-1 items-center'}>
 					<p className={cn('text-sm group-has-[[data-4x4]]/container:hidden')}>
 						{temperature.toFixed(0)}°
 					</p>

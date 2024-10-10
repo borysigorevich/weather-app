@@ -20,12 +20,12 @@ export const DailyForecast = ({
 	return (
 		<Card
 			className={
-				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 border-none overflow-hidden'
+				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 pr-0.5 border-none overflow-auto'
 			}
 		>
-			<p className={'font-semibold text-sm text-white/85'}>10-day forecast</p>
+			<p className={'font-semibold text-sm text-white/85 group-has-[[data-2x2]]/container:hidden'}>10-day forecast</p>
 
-			<div className={'mt-2'}>
+			<div className={'group-has-[[data-4x4]]/container:mt-2'}>
 				{dailyForecastData.map((forecast, index) => (
 					<DailyForecastItem key={index} {...forecast} />
 				))}

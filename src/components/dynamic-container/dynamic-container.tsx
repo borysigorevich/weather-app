@@ -6,7 +6,7 @@ import React, { PropsWithChildren, useState } from 'react';
 type SizeType = '2x2' | '4x2' | '4x4';
 
 export const DynamicContainer = ({ children }: PropsWithChildren) => {
-	const [size, setSize] = useState<SizeType>('4x2');
+	const [size, setSize] = useState<SizeType>('2x2');
 
 	return (
 		<div className={'group/container'}>
