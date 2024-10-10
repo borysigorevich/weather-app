@@ -25,6 +25,7 @@ export const apiFetch: ApiFetchFn = async (input, options?) => {
     }
 
     try {
+        console.log({ url });
         const response = await fetch(url.toString(), options);
         const data = await response.json();
 

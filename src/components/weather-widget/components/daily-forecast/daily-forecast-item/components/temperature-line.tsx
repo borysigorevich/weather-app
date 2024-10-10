@@ -17,16 +17,6 @@ export const TemperatureLine: React.FC<TemperatureLineProps> = ({
 	const leftFlexBasis = `${(avgTempPosition / totalRange) * 100}%`;
 	const rightFlexBasis = `${((maxTemp - (avgTemp || minTemp)) / totalRange) * 100}%`;
 
-	console.log({
-		minTemp,
-		maxTemp,
-		avgTemp,
-		leftFlexBasis,
-		rightFlexBasis,
-		totalRange,
-		avgTempPosition
-	})
-
 	return (
 		<div className="grid items-center w-full grid-cols-[22.45px_1fr_22.45px] gap-1">
 			<p>{minTemp.toFixed(0)}°</p>

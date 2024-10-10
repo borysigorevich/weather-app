@@ -17,13 +17,13 @@ export const CurrentTemperatureDisplay = ({
 }: CurrentTemperatureDisplayProps) => {
 	return (
 		<div className={'text-center my-4'}>
-			<h3 className={'text-xl'}>New York</h3>
-			<p className={'text-6xl'}>14°</p>
+			<h3 className={'text-xl'}>{location}</h3>
+			<p className={'text-6xl'}>{temperature.toFixed(0)}°</p>
 			<div className={'text-sm font-semibold'}>
-				<p>Thunderstorm</p>
+				<p>{weather}</p>
 				<div className={'flex gap-2 justify-center'}>
-					<p>H:17°</p>
-					<p>L:8°</p>
+					<p>H:{high.toFixed(0)}°</p>
+					<p>L:{low.toFixed(0)}°</p>
 				</div>
 			</div>
 		</div>

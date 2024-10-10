@@ -1,5 +1,5 @@
 import {apiFetch} from "@/services/api";
-import {OPENWEATHER_BASE_URL} from "@/services/constants";
+import {OPENWEATHER_BASE_URL, WEATHERAPI_BASE_URL} from "@/services/constants";
 
 /**
  * Fetches weather data based on the location input.
@@ -22,11 +22,11 @@ import {OPENWEATHER_BASE_URL} from "@/services/constants";
  * @returns Promise<WeatherDataType>
  */
 export const getWeather = async (location: string) => {
-    return await apiFetch<WeatherDataType>(`/weather`, {
-        baseUrl: OPENWEATHER_BASE_URL,
+    return await apiFetch<WeatherDataType>(`/forecast.json`, {
+        baseUrl: WEATHERAPI_BASE_URL,
         searchParams: {
             q: location,
-            key: process.env.WEATHERAPI_KEY as string,
+            key: process.env.WEATHERAPI_API_KEY as string,
             days: '5',
             aqi: 'no',
             alerts: 'no',

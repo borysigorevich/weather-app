@@ -15,15 +15,15 @@ export const HourlyForecastItem = ({
 }: HourlyForecastItemProps) => {
 	return (
 		<div className={'grid gap-1 text-xs justify-items-center font-semibold'}>
-			<p>Now</p>
+			<p>{time}</p>
 			<Image
 				className={'h-7 w-7 object-cover'}
-				src={'https://cdn.weatherapi.com/weather/64x64/night/122.png'}
+				src={icon}
 				width={28}
 				height={28}
 				alt={'weather'}
 			/>
-			<p>12°</p>
+			<p>{temperature}°</p>
 		</div>
 	);
 };
