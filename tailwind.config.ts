@@ -65,7 +65,41 @@ const config: Config = {
 		},
 		containers: {
 			  '2xl': '40rem'
-		}
+		},
+		keyframes: {
+			growAndScale: {
+				'0%': {
+					transform: 'scale(0)',
+					width: '40px',
+				},
+				'50%': {
+					transform: 'scale(1)',
+					width: '40px',
+				},
+				'100%': {
+					transform: 'scale(1)',
+					width: '250px',
+				},
+			},
+			shrinkAndReverseScale: {
+				'0%': {
+					transform: 'scale(1)',
+					width: '250px',
+				},
+				'50%': {
+					transform: 'scale(1)',
+					width: '40px',
+				},
+				'100%': {
+					transform: 'scale(0)',
+					width: '40px',
+				},
+			},
+		},
+		animation: {
+			'grow': 'growAndScale 1s ease-in-out forwards',
+			'shrink': 'shrinkAndReverseScale 1s ease-in-out forwards',
+		},
   	}
   },
   plugins: [require("tailwindcss-animate"), require('@tailwindcss/container-queries')],
