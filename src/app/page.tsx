@@ -13,7 +13,9 @@ export default function Home({ searchParams: {location} }: HomePageProps) {
 	return (
 		<div className="h-full grid place-items-center bg-teal-200 remove-scrollbar">
 			<div className={'relative'}>
-				<ErrorBoundary fallback={<WeatherWidgetSkeleton />}>
+				<ErrorBoundary fallback={<WeatherWidgetSkeleton />}
+					resetKey={location}
+				>
 					<WeatherWidget
 						userInputLocation={location}
 					/>

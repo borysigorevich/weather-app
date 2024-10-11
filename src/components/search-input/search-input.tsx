@@ -37,7 +37,7 @@ export const SearchInput = ({ className, query, placeholder }: LocationInputProp
 			params.delete(query);
 		}
 		replace(`${pathname}?${params.toString()}`);
-	}, 300)
+	}, 400)
 
 	return (
 		<div className={cn('relative z-[100]', className)} ref={containerRef}>

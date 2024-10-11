@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 interface ErrorBoundaryProps {
     fallback: React.ReactNode;
     children: React.ReactNode;
+    resetKey?: string
 }
 
 interface ErrorBoundaryState {
@@ -23,8 +24,14 @@ export class ErrorBoundary extends React.Component<
         this.state = { hasError: false };
     }
 
+    componentDidUpdate(prevProps: ErrorBoundaryProps) {
+        if (prevProps.resetKey !== this.props.resetKey && this.state.hasError) {
+            this.resetErrorBoundary();
+        }
+    }
+
     static getDerivedStateFromError(
-        error: Error & { digest?: string;  },
+        error: Error & { digest?: string },
     ): ErrorBoundaryState {
         const isExpectedError = error instanceof ExpectedError;
 
@@ -45,6 +52,11 @@ export class ErrorBoundary extends React.Component<
             );
         }
     }
+
+    resetErrorBoundary = () => {
+        this.setState({ hasError: false, isExpectedError: undefined });
+        toast.dismiss();
+    };
 
     render() {
         const { fallback, children } = this.props;
