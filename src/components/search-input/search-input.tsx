@@ -18,7 +18,13 @@ export const SearchInput = ({ className, query, placeholder }: LocationInputProp
 	const pathname = usePathname();
 	const { replace } = useRouter();
 
-	const containerRef = useOutsideClick(() => setActive(false));
+	const containerRef = useOutsideClick(() => setActive(state => {
+		if (state) {
+			return false
+		}
+
+		return null
+	}));
 	const inputRef = useRef<ComponentRef<'input'>>(null);
 
 	const [active, setActive] = useState<boolean | null>(null);
