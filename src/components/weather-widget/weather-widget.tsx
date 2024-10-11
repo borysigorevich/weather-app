@@ -1,4 +1,5 @@
 import { DynamicContainer } from '@/components/dynamic-container/dynamic-container';
+import { ExpectedErrorsHandler } from '@/components/errors/ExpectedErrorsHandler/ExpectedErrorsHandler';
 import { Card } from '@/components/ui/card';
 import { CurrentTemperatureDisplay } from '@/components/weather-widget/components/current-temperature-display/current-temperature-display';
 import { DailyForecast } from '@/components/weather-widget/components/daily-forecast/daily-forecast';
@@ -9,22 +10,24 @@ import { detectDeviceType } from '@/lib/detectDeviceType';
 import {
 	normalizeDailyForecastData,
 	normalizeHourlyForecastData,
-	normalizeTemperatureDisplayData
-} from "@/lib/normalizeData";
+	normalizeTemperatureDisplayData,
+} from '@/lib/normalizeData';
 import { getGeolocation } from '@/services/geolocation';
 import { getWeather } from '@/services/weather';
 import React from 'react';
 
 export const WeatherWidget = async () => {
-	const { data: location } = await getGeolocation();
-	const { data: weather } = await getWeather(
+	const { data: location, error: geoError } = await getGeolocation();
+	const { data: weather, error: weatherError } = await getWeather(
 		`${location?.latitude},${location?.longitude}` || 'Kyiv'
 	);
 
-	if (!weather) return null;
+	if (geoError || weatherError) {
+		return <ExpectedErrorsHandler error={geoError || weatherError} />;
+	}
 
-	const temperatureDisplayData = normalizeTemperatureDisplayData(weather);
-	const hourlyForecastData = normalizeHourlyForecastData(weather);
+	const temperatureDisplayData = normalizeTemperatureDisplayData(weather!);
+	const hourlyForecastData = normalizeHourlyForecastData(weather!);
 
 	const deviceType = detectDeviceType();
 
@@ -46,7 +49,7 @@ export const WeatherWidget = async () => {
 						HourlyForecastItem={HourlyForecastItem}
 					/>
 					<DailyForecast
-						dailyForecastData={normalizeDailyForecastData(weather)}
+						dailyForecastData={normalizeDailyForecastData(weather!)}
 						DailyForecastItem={DailyForecastItem}
 					/>
 				</div>

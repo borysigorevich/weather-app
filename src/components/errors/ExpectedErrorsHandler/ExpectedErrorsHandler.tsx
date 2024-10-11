@@ -8,11 +8,8 @@ type ErrorHandlerProps = {
 
 export const ExpectedErrorsHandler = ({
     error,
-    children,
 }: PropsWithChildren<ErrorHandlerProps>) => {
-    if (error) {
-        throw new ExpectedError(error, true);
-    }
+    if (!error) return null;
 
-    return children;
+        throw new ExpectedError(error, true);
 };

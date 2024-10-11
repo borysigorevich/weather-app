@@ -39,8 +39,8 @@ export const apiFetch: ApiFetchFn = async (input, options?) => {
             );
             return {
                 error:
-                    data.message ||
-                    data.error ||
+                    data.error.message ||
+                    data.error.error ||
                     `Error: ${response.status} ${response.statusText}`,
             };
         }
