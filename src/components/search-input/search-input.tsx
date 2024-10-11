@@ -49,14 +49,15 @@ export const SearchInput = ({ className, query, placeholder }: LocationInputProp
 	return (
 		<div className={cn('relative z-[100]', className)} ref={containerRef}>
 			<button
-				className={
-					cn('bg-main p-2 transition delay-300 rounded-full absolute top-1/2 -translate-y-1/2 z-50 text-white cursor-pointer', {
+				className={cn(
+					'bg-main p-2 transition delay-300 rounded-full absolute top-1/2 -translate-y-1/2 z-50 text-white cursor-pointer',
+					{
 						'bg-transparent': active,
-					})
-				}
+					}
+				)}
 				onClick={handleActive}
 			>
-				<Search/>
+				<Search />
 			</button>
 			<input
 				ref={inputRef}

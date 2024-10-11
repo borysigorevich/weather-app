@@ -12,11 +12,7 @@ type HomePageProps = {
 export default function Home({ searchParams: { location } }: HomePageProps) {
 	return (
 		<div className="min-h-full grid place-items-center bg-teal-200 remove-scrollbar">
-			<div
-				className={
-					'@container/home w-full grid place-items-center my-20'
-				}
-			>
+			<div className={'@container/home w-full grid place-items-center my-20'}>
 				<div className={'relative px-2'}>
 					<ErrorBoundary
 						fallback={<WeatherWidgetSkeleton />}
