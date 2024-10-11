@@ -6,12 +6,12 @@ import { DailyForecast } from '@/components/weather-widget/components/daily-fore
 import { DailyForecastItem } from '@/components/weather-widget/components/daily-forecast/daily-forecast-item/daily-forecast-item';
 import { HourlyForecastItem } from '@/components/weather-widget/components/hourly-forecast/components/hourly-forecast-item';
 import { HourlyForecast } from '@/components/weather-widget/components/hourly-forecast/hourly-forecast';
-import { detectDeviceType } from '@/lib/detectDeviceType';
+import { detectDeviceType } from '@/lib/detect-device-type';
 import {
 	normalizeDailyForecastData,
 	normalizeHourlyForecastData,
 	normalizeTemperatureDisplayData,
-} from '@/lib/normalizeData';
+} from '@/lib/normalize-data';
 import { getGeolocation } from '@/services/geolocation';
 import { getWeather } from '@/services/weather';
 import React from 'react';

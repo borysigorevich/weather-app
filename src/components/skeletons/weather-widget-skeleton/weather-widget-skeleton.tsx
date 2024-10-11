@@ -1,4 +1,4 @@
-import { detectDeviceType } from '@/lib/detectDeviceType';
+import { detectDeviceType } from '@/lib/detect-device-type';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
