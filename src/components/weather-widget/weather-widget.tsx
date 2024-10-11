@@ -31,6 +31,7 @@ export const WeatherWidget = async ({ userInputLocation }: WeatherWidgetProps) =
 
 	const temperatureDisplayData = normalizeTemperatureDisplayData(weather!);
 	const hourlyForecastData = normalizeHourlyForecastData(weather!);
+	const dailyForecastData = normalizeDailyForecastData(weather!);
 
 	const deviceType = detectDeviceType();
 
@@ -52,7 +53,7 @@ export const WeatherWidget = async ({ userInputLocation }: WeatherWidgetProps) =
 						HourlyForecastItem={HourlyForecastItem}
 					/>
 					<DailyForecast
-						dailyForecastData={normalizeDailyForecastData(weather!)}
+						dailyForecastData={dailyForecastData}
 						DailyForecastItem={DailyForecastItem}
 					/>
 				</div>
