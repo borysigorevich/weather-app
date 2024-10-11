@@ -11,5 +11,7 @@ export const ExpectedErrorsHandler = ({
 }: PropsWithChildren<ErrorHandlerProps>) => {
     if (!error) return null;
 
+    console.log('ExpectedErrorsHandler', error);
+
         throw new ExpectedError(error, true);
 };

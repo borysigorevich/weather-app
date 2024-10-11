@@ -25,7 +25,7 @@ export const WeatherWidget = async ({userInputLocation}: WeatherWidgetProps) => 
 	const { data: weather, error: weatherError } = await getWeather(
 		userInputLocation || `${location?.latitude},${location?.longitude}` || 'Kyiv'
 	);
-
+	console.log('WeatherWidget');
 	if (geoError || weatherError) {
 		return <ExpectedErrorsHandler error={geoError || weatherError} />;
 	}

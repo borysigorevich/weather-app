@@ -11,17 +11,25 @@ type HomePageProps = {
 
 export default function Home({ searchParams: { location } }: HomePageProps) {
 	return (
-		<div className="h-full grid place-items-center bg-teal-200 remove-scrollbar">
-			<div className={'relative @container/home w-full grid place-items-center'}>
+		<div className="min-h-full grid place-items-center bg-teal-200 remove-scrollbar">
+			<div
+				className={
+					'relative @container/home w-full grid place-items-center my-20'
+				}
+			>
 				<div className={'relative'}>
-					<ErrorBoundary fallback={<WeatherWidgetSkeleton/>} resetKey={location}>
-					<WeatherWidget userInputLocation={location}/>
-				</ErrorBoundary>
+					<ErrorBoundary
+						fallback={<WeatherWidgetSkeleton />}
+						resetKey={location}
+					>
+						<WeatherWidget userInputLocation={location} />
+					</ErrorBoundary>
 					<SearchInput
 						className="absolute -top-14 left-2"
 						query="location"
 						placeholder="Search for a location"
-					/></div>
+					/>
+				</div>
 			</div>
 		</div>
 	);
