@@ -48,9 +48,8 @@ export const DynamicContainer = ({ children, initialSize = '4x4' }: PropsWithChi
 				data-4x2={size === '4x2' ? '' : undefined}
 				data-4x4={size === '4x4' ? '' : undefined}
 				className={cn('@container w-[calc(100vw-16px)] max-w-[40rem]', {
-					' h-80 aspect-[2:2]': size === '2x2',
-					' aspect-[4:2]': size === '4x2',
-					' h-160 aspect-[4:4]': size === '4x4',
+					'h-80': size === '2x2',
+					'h-160': size === '4x4',
 				})}
 			>
 				{children}
