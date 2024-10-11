@@ -50,7 +50,7 @@ export const DynamicContainer = ({
 	}, []);
 
 	return (
-		<div className={'group/container relative px-2'}>
+		<div className={'group/container relative'}>
 			<div
 				ref={containerRef}
 				data-2x2={size === '2x2' ? '' : undefined}

@@ -10,7 +10,7 @@ export const WeatherWidgetSkeleton = () => {
 	return (
 		<div
 			className={cn(
-				'rounded-2xl h-full animate-pulse bg-slate-400 w-[calc(100vw-16px)] max-w-[40rem] @xs:h-80 @2xl:h-160 mx-auto',
+				'rounded-2xl h-full animate-pulse bg-slate-400 w-[calc(100vw-16px)] max-w-[40rem] @xs:h-80 @2xl:h-160 mx-auto border',
 				{
 					'h-80': isMobile,
 					'h-160': !isMobile,
