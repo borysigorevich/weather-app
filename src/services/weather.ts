@@ -1,5 +1,5 @@
 import {apiFetch} from "@/services/api";
-import {OPENWEATHER_BASE_URL, WEATHERAPI_BASE_URL} from "@/services/constants";
+import {WEATHERAPI_BASE_URL} from "@/services/constants";
 
 /**
  * Fetches weather data based on the location input.

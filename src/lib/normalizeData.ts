@@ -14,7 +14,11 @@ export const normalizeTemperatureDisplayData = (weather: WeatherDataType) => {
 export const normalizeHourlyForecastData = (weather: WeatherDataType) => {
     const currentDate = new Date();
 
-    return weather.forecast.forecastday[0].hour
+
+    const currentDayHours = weather.forecast.forecastday[0].hour;
+    const nextDayHours = weather.forecast.forecastday[1].hour;
+
+    return [...currentDayHours, ...nextDayHours]
         .filter((hour) => {
             const hourDate = new Date(hour.time);
             return isSameHour(currentDate, hourDate) || isAfter(hourDate, currentDate);
