@@ -1,4 +1,3 @@
-import { TemperatureLine } from '@/components/weather-widget/components/daily-forecast/daily-forecast-item/components/temperature-line';
 import Image from 'next/image';
 import React from 'react';
 
@@ -7,13 +6,14 @@ type DailyForecastItemProps = {
 	high: number;
 	low: number;
 	icon: string;
+	weather: string;
 };
 
-export const DailyForecastItem = ({ low, icon, day, high }: DailyForecastItemProps) => {
+export const DailyForecastItem = ({ low, icon, day, high, weather }: DailyForecastItemProps) => {
 	return (
 		<div
 			className={
-				'grid grid-cols-[29px_28px_1fr] gap-1.5 py-1 justify-between font-semibold text-sm items-center border-b border-b-white/40'
+				'grid grid-cols-[29px_28px_1fr] group-has-[[data-4x4]]/container:grid-cols-[29px_28px_1fr_1fr] gap-6 py-1 font-semibold text-sm items-center border-b border-b-white/40'
 			}
 		>
 			<p>{day}</p>
@@ -24,7 +24,13 @@ export const DailyForecastItem = ({ low, icon, day, high }: DailyForecastItemPro
 				height={28}
 				alt={'weather'}
 			/>
-			<TemperatureLine minTemp={low} maxTemp={high} avgTemp={15} />
+			<p className={'hidden group-has-[[data-4x4]]/container:block'}>
+				{weather}
+			</p>
+			<div className="grid items-center justify-items-center gap-2 grid-cols-2 ml-auto w-28">
+				<p>L:{low.toFixed(0)}°</p>
+				<p>H:{high.toFixed(0)}°</p>
+			</div>
 		</div>
 	);
 };

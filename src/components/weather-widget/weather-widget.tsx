@@ -5,48 +5,15 @@ import { DailyForecast } from '@/components/weather-widget/components/daily-fore
 import { DailyForecastItem } from '@/components/weather-widget/components/daily-forecast/daily-forecast-item/daily-forecast-item';
 import { HourlyForecastItem } from '@/components/weather-widget/components/hourly-forecast/components/hourly-forecast-item';
 import { HourlyForecast } from '@/components/weather-widget/components/hourly-forecast/hourly-forecast';
+import { detectDeviceType } from '@/lib/detectDeviceType';
+import {
+	normalizeDailyForecastData,
+	normalizeHourlyForecastData,
+	normalizeTemperatureDisplayData
+} from "@/lib/normalizeData";
 import { getGeolocation } from '@/services/geolocation';
-import { getWeather, WeatherDataType } from '@/services/weather';
-import { format, isAfter, isSameHour, isToday } from 'date-fns';
+import { getWeather } from '@/services/weather';
 import React from 'react';
-
-const normalizeTemperatureDisplayData = (weather: WeatherDataType) => {
-	return {
-		location: weather.location.name,
-		temperature: weather.current.temp_c,
-		weather: weather.current.condition.text,
-		high: weather.forecast.forecastday[0].day.maxtemp_c,
-		low: weather.forecast.forecastday[0].day.mintemp_c,
-	};
-};
-
-const normalizeHourlyForecastData = (weather: WeatherDataType) => {
-	const currentDate = new Date();
-
-	return weather.forecast.forecastday[0].hour
-		.filter((hour) => {
-			const hourDate = new Date(hour.time);
-			return isSameHour(currentDate, hourDate) || isAfter(hourDate, currentDate);
-		})
-		.map((hour) => {
-			const hourDate = new Date(hour.time);
-
-			return {
-				temperature: Math.round(hour.temp_c),
-				time: isSameHour(currentDate, hourDate) ? 'Now' : format(hourDate, 'HH'),
-				icon: 'https://' + hour.condition.icon,
-			};
-		});
-};
-
-const normalizeDailyForecastData = (weather: WeatherDataType) => {
-	return weather.forecast.forecastday.slice(1).map((day) => ({
-		day: isToday(new Date(day.date)) ? 'Today' : format(new Date(day.date), 'EEE'),
-		high: Math.round(day.day.maxtemp_c),
-		low: Math.round(day.day.mintemp_c),
-		icon: 'https://' + day.day.condition.icon,
-	}));
-};
 
 export const WeatherWidget = async () => {
 	const { data: location } = await getGeolocation();
@@ -59,15 +26,21 @@ export const WeatherWidget = async () => {
 	const temperatureDisplayData = normalizeTemperatureDisplayData(weather);
 	const hourlyForecastData = normalizeHourlyForecastData(weather);
 
+	const deviceType = detectDeviceType();
+
 	return (
-		<DynamicContainer>
+		<DynamicContainer initialSize={deviceType === 'mobile' ? '2x2' : '4x4'}>
 			<Card
 				className={
 					'rounded-2xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] p-3 text-white w-full h-full overflow-hidden grid'
 				}
 			>
 				<CurrentTemperatureDisplay {...temperatureDisplayData} />
-				<div className={'grid group-has-[[data-4x2]]/container:grid-cols-2 gap-2 overflow-auto'}>
+				<div
+					className={
+						'grid group-has-[[data-4x2]]/container:grid-cols-2 gap-2 overflow-auto'
+					}
+				>
 					<HourlyForecast
 						hourlyForecastData={hourlyForecastData}
 						HourlyForecastItem={HourlyForecastItem}

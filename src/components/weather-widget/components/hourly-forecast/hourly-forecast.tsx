@@ -20,7 +20,7 @@ export const HourlyForecast = ({
 	return (
 		<Card
 			className={
-				'text-white rounded-xl backdrop-blur-md bg-[rgba(74,103,228,0.1)] border-none overflow-hidden'
+				'text-white rounded-xl backdrop-blur-md bg-main border-none overflow-hidden'
 			}
 		>
 				<HorizontalScroll
