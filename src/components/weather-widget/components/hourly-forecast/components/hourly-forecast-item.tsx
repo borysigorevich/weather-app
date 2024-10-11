@@ -1,5 +1,4 @@
 import {Divider} from "@/components/ui/divider";
-import { TemperatureLine } from '@/components/weather-widget/components/daily-forecast/daily-forecast-item/components/temperature-line';
 import Image from 'next/image';
 import React from 'react';
 
@@ -15,7 +14,7 @@ export const HourlyForecastItem = ({
 	temperature,
 }: HourlyForecastItemProps) => {
 	return (
-		<div className={'grid gap-1 text-xs justify-items-center font-semibold'}>
+		<div className={'grid gap-0.5 text-xs justify-items-center font-semibold'}>
 			<p>{time}</p>
 			<Image
 				className={'h-7 w-7 object-cover'}
@@ -25,7 +24,7 @@ export const HourlyForecastItem = ({
 				alt={'weather'}
 			/>
 			<p>{temperature}°</p>
-			<Divider className={'my-0 w-3/4'}/>
+			<Divider className={'my-0 w-3/4 hidden group-has-[[data-4x2]]/container:block'}/>
 		</div>
 	);
 };
