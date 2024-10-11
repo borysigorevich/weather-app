@@ -2,29 +2,30 @@
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/lib/utils';
 import { Search } from 'lucide-react';
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { ComponentRef, useRef, useState } from 'react';
-import {useDebouncedCallback} from "use-debounce";
+import { useDebouncedCallback } from 'use-debounce';
 
 type LocationInputProps = {
 	className?: string;
-	query: string
-	placeholder: string
+	query: string;
+	placeholder: string;
 };
 
 export const SearchInput = ({ className, query, placeholder }: LocationInputProps) => {
-
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
 
-	const containerRef = useOutsideClick(() => setActive(state => {
-		if (state) {
-			return false
-		}
+	const containerRef = useOutsideClick(() =>
+		setActive((state) => {
+			if (state) {
+				return false;
+			}
 
-		return null
-	}));
+			return null;
+		})
+	);
 	const inputRef = useRef<ComponentRef<'input'>>(null);
 
 	const [active, setActive] = useState<boolean | null>(null);
@@ -35,7 +36,7 @@ export const SearchInput = ({ className, query, placeholder }: LocationInputProp
 		inputRef.current?.focus();
 	};
 
-	const handleSearch = useDebouncedCallback((inputValue: string) =>{
+	const handleSearch = useDebouncedCallback((inputValue: string) => {
 		const params = new URLSearchParams(searchParams);
 		if (inputValue) {
 			params.set(query, inputValue);
@@ -43,7 +44,7 @@ export const SearchInput = ({ className, query, placeholder }: LocationInputProp
 			params.delete(query);
 		}
 		replace(`${pathname}?${params.toString()}`);
-	}, 400)
+	}, 400);
 
 	return (
 		<div className={cn('relative z-[100]', className)} ref={containerRef}>

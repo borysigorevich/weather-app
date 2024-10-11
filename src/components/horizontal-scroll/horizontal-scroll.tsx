@@ -3,9 +3,12 @@ import React, { ComponentRef, PropsWithChildren, useEffect, useRef } from 'react
 
 type HorizontalScrollProps = {
 	className?: string;
-}
+};
 
-export const HorizontalScroll = ({ children, className }: PropsWithChildren<HorizontalScrollProps>) => {
+export const HorizontalScroll = ({
+	children,
+	className,
+}: PropsWithChildren<HorizontalScrollProps>) => {
 	const elRef = useRef<ComponentRef<'div'> | null>(null);
 
 	useEffect(() => {
@@ -24,5 +27,9 @@ export const HorizontalScroll = ({ children, className }: PropsWithChildren<Hori
 		}
 	}, []);
 
-	return <div ref={elRef} className={className}>{children}</div>;
+	return (
+		<div ref={elRef} className={className}>
+			{children}
+		</div>
+	);
 };

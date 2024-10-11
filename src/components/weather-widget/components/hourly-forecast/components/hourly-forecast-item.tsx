@@ -1,4 +1,4 @@
-import {Divider} from "@/components/ui/divider";
+import { Divider } from '@/components/ui/divider';
 import Image from 'next/image';
 import React from 'react';
 
@@ -24,7 +24,9 @@ export const HourlyForecastItem = ({
 				alt={'weather'}
 			/>
 			<p>{temperature}°</p>
-			<Divider className={'my-0 w-3/4 hidden group-has-[[data-4x2]]/container:block'}/>
+			<Divider
+				className={'my-0 w-3/4 hidden group-has-[[data-4x2]]/container:block'}
+			/>
 		</div>
 	);
 };

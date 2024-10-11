@@ -1,5 +1,5 @@
-import {apiFetch} from "@/services/api";
-import {WEATHERAPI_BASE_URL} from "@/services/constants";
+import { apiFetch } from '@/services/api';
+import { WEATHERAPI_BASE_URL } from '@/services/constants';
 
 /**
  * Fetches weather data based on the location input.
@@ -22,54 +22,54 @@ import {WEATHERAPI_BASE_URL} from "@/services/constants";
  * @returns Promise<WeatherDataType>
  */
 export const getWeather = async (location: string) => {
-    return await apiFetch<WeatherDataType>(`/forecast.json`, {
-        baseUrl: WEATHERAPI_BASE_URL,
-        searchParams: {
-            q: location,
-            key: process.env.WEATHERAPI_API_KEY as string,
-            days: '10',
-            aqi: 'no',
-            alerts: 'no',
-        },
-    });
+	return await apiFetch<WeatherDataType>(`/forecast.json`, {
+		baseUrl: WEATHERAPI_BASE_URL,
+		searchParams: {
+			q: location,
+			key: process.env.WEATHERAPI_API_KEY as string,
+			days: '10',
+			aqi: 'no',
+			alerts: 'no',
+		},
+	});
 };
 
 export type WeatherDataType = {
-    location: {
-        name: string;
-    };
-    current: {
-        temp_c: number;
-        condition: {
-            text: string;
-            icon: string;
-        };
-        feelslike_c: number;
-    };
-    forecast: {
-        forecastday: ForecastDayType[];
-    };
-}
+	location: {
+		name: string;
+	};
+	current: {
+		temp_c: number;
+		condition: {
+			text: string;
+			icon: string;
+		};
+		feelslike_c: number;
+	};
+	forecast: {
+		forecastday: ForecastDayType[];
+	};
+};
 
 export type ForecastDayType = {
-    date: string;
-    day: {
-        maxtemp_c: number;
-        mintemp_c: number;
-        daily_chance_of_rain: number;
-        condition: {
-            text: string;
-            icon: string;
-        };
-    };
-    hour: HourlyWeatherType[];
-}
+	date: string;
+	day: {
+		maxtemp_c: number;
+		mintemp_c: number;
+		daily_chance_of_rain: number;
+		condition: {
+			text: string;
+			icon: string;
+		};
+	};
+	hour: HourlyWeatherType[];
+};
 
 export type HourlyWeatherType = {
-    time: string;
-    temp_c: number;
-    condition: {
-        text: string;
-        icon: string;
-    };
-}
+	time: string;
+	temp_c: number;
+	condition: {
+		text: string;
+		icon: string;
+	};
+};

@@ -1,15 +1,24 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import React, {ComponentRef, PropsWithChildren, useEffect, useRef, useState} from 'react';
+import React, {
+	ComponentRef,
+	PropsWithChildren,
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 
 type SizeType = '2x2' | '4x2' | '4x4';
 
 type DynamicContainerProps = {
 	initialSize?: SizeType;
-}
+};
 
-export const DynamicContainer = ({ children, initialSize = '4x4' }: PropsWithChildren<DynamicContainerProps>) => {
+export const DynamicContainer = ({
+	children,
+	initialSize = '4x4',
+}: PropsWithChildren<DynamicContainerProps>) => {
 	const [size, setSize] = useState<SizeType>(initialSize);
 
 	const containerRef = useRef<ComponentRef<'div'> | null>(null);

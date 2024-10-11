@@ -3,15 +3,13 @@ import { ExpectedError } from '../ExpectedError/ExpectedError';
 import { PropsWithChildren } from 'react';
 
 type ErrorHandlerProps = {
-    error?: string;
+	error?: string;
 };
 
 export const ExpectedErrorsHandler = ({
-    error,
+	error,
 }: PropsWithChildren<ErrorHandlerProps>) => {
-    if (!error) return null;
+	if (!error) return null;
 
-    console.log('ExpectedErrorsHandler', error);
-
-        throw new ExpectedError(error, true);
+	throw new ExpectedError(error, true);
 };

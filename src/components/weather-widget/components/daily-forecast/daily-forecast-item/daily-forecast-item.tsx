@@ -9,7 +9,13 @@ type DailyForecastItemProps = {
 	weather: string;
 };
 
-export const DailyForecastItem = ({ low, icon, day, high, weather }: DailyForecastItemProps) => {
+export const DailyForecastItem = ({
+	low,
+	icon,
+	day,
+	high,
+	weather,
+}: DailyForecastItemProps) => {
 	return (
 		<div
 			className={
@@ -24,9 +30,7 @@ export const DailyForecastItem = ({ low, icon, day, high, weather }: DailyForeca
 				height={28}
 				alt={'weather'}
 			/>
-			<p className={'hidden group-has-[[data-4x4]]/container:block'}>
-				{weather}
-			</p>
+			<p className={'hidden group-has-[[data-4x4]]/container:block'}>{weather}</p>
 			<div className="grid items-center justify-items-center gap-2 grid-cols-2 ml-auto w-28">
 				<p>L:{low.toFixed(0)}°</p>
 				<p>H:{high.toFixed(0)}°</p>
