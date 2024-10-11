@@ -26,7 +26,7 @@ export const getWeather = async (location: string) => {
 		baseUrl: WEATHERAPI_BASE_URL,
 		searchParams: {
 			q: location,
-			key: process.env.WEATHERAPI_API_KEY as string,
+			key: process.env.WEATHERAPI_API_KEY,
 			days: '10',
 			aqi: 'no',
 			alerts: 'no',
