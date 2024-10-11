@@ -16,10 +16,14 @@ import { getGeolocation } from '@/services/geolocation';
 import { getWeather } from '@/services/weather';
 import React from 'react';
 
-export const WeatherWidget = async () => {
+type WeatherWidgetProps = {
+	userInputLocation?: string;
+}
+
+export const WeatherWidget = async ({userInputLocation}: WeatherWidgetProps) => {
 	const { data: location, error: geoError } = await getGeolocation();
 	const { data: weather, error: weatherError } = await getWeather(
-		`${location?.latitude},${location?.longitude}` || 'Kyiv'
+		userInputLocation || `${location?.latitude},${location?.longitude}` || 'Kyiv'
 	);
 
 	if (geoError || weatherError) {

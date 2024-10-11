@@ -3,12 +3,20 @@ import { SearchInput } from '@/components/search-input/search-input';
 import { WeatherWidgetSkeleton } from '@/components/skeletons/weather-widget-skeleton/weather-widget-skeleton';
 import { WeatherWidget } from '@/components/weather-widget/weather-widget';
 
-export default function Home() {
+type HomePageProps = {
+	searchParams: {
+		location?: string;
+	};
+}
+
+export default function Home({ searchParams: {location} }: HomePageProps) {
 	return (
 		<div className="h-full grid place-items-center bg-teal-200 remove-scrollbar">
 			<div className={'relative'}>
 				<ErrorBoundary fallback={<WeatherWidgetSkeleton />}>
-					<WeatherWidget />
+					<WeatherWidget
+						userInputLocation={location}
+					/>
 				</ErrorBoundary>
 				<SearchInput
 					className="absolute -top-14 left-2"
